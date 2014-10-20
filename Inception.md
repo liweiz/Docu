@@ -8,7 +8,7 @@ A platform to provide infrastructure, service and operation for social media and
 
 ##终端用户 (End User: EU)
 
-ʹ使用社交网站的个人用户。
+使用社交网站的个人用户。
 
 #服务内容
 ##管理个人用户关系
@@ -33,11 +33,15 @@ Docu nodes can have edges to EU nodes. E.g., a Docu saved by an EU, a Docu liked
 
 商业用户可以定义Docu life cycle triggered event 的对应的action。
 Lifecycle events are defined and offered by system:
+
 **Created, Posted, Updated, Closed, Deleted**
 
 Actions are defined and offered by system:
+
 **Notify User**: sending notification to user’s mobile app, or emailing user. Email can be configured as aggregation or summary.
+
 **Feed User**: Showing on user’s landing page.
+
 **Message User**: Showing in user’s inbox.
 
 ##Others
