@@ -1,18 +1,19 @@
 #Goal
 A platform to provide infrastructure, service and operation for social media and social network start-ups.
 
-#å®¢æˆ·å¯¹è±¡
-##å•†ä¸šç”¨æˆ· (Site Owner: SO)
+#Client and User
+##Business User
+**Social Network Application Owner (SNAO)**: The owners or founders of SNA. The platform is to facilitate many aspects of SNA, including creation, development, operation, maintenance and monitoring. It supports many common SNA functions and features out-of-box and offers APIs for SNAO to extend for application specific features.
 
-ä¸ºå°å‹ç¤¾äº¤ç½‘ç«™çš„å…¬å¸é€šè¿‡hostingã€‚ ä¸ºç¤¾äº¤ç½‘ç«™åˆ›å»ºåˆæœŸæä¾›prototypeå’Œè¯•è¿è¡Œã€‚
+It offers a easy-to-start environment for new SNA. It significant reduces the time-to-market and the cost of building a new application.
 
-##ç»ˆç«¯ç”¨æˆ· (End User: EU)
+It also offers hosting and takes the burden of operation and maintenance away from SNAOs, so that SNAOs can focus on developing business. 
 
-ä½¿ç”¨ç¤¾äº¤ç½‘ç«™çš„ä¸ªäººç”¨æˆ·ã€‚
+##End User
+**End User (EU)**: Users who uses SNA applications hosted in the platform.
 
-#æœåŠ¡å†…å®¹
-##ç®¡ç†ä¸ªäººç”¨æˆ·å…³ç³»
-
+#Model and Services
+##User
 Each EU is stored as a node. Each node has a set of system attributes, such as account, name, nick name, avatar, email, birth date and location. System attributes are the same across all sites.
 
 Each SO can define extra site attributes for EU who joins the site. Examples of site attributes are userScore, joinedOn (date/time), profile and settings, where profile and settings can be a complex type defined by SO.
@@ -21,7 +22,9 @@ SO may specify indexes on certain attributes, so that SO can search on those att
 
 Each EU node links to other EU nodes as edges. Edges can have different types, such as friend and follow.
 
-##ç®¡ç†ä¸ªäººç”¨æˆ·å‘å¸ƒå†…å®¹ã€‚ä¸ªäººç”¨æˆ·å‘å¸ƒçš„ä¸€ä¸ªå†…å®¹æš‚ç§°ä¸ºDocuã€‚(Docu ç±»ä¼¼äºMattè¯´çš„ç‰©ï¼Œ æ¯”å¦‚Waneloçš„å•†å“å°±æ˜¯ä¸€ä¸ªå¸¦é“¾æ¥å’Œäº§å“ä»‹ç»çš„postï¼‰
+##Docu
+*(TODO: suggestions for a better name?)*
+The content posted by EU is called Docu. For example, a post describing a product in Wanelo, a post / comment / reply in StackOverflow, etc. 
 
 Each Docu is also stored as a node. Each node has a set of system attributes, such as title, content, poster, postedOn (time).
 
@@ -31,59 +34,82 @@ Docu nodes form a tree relationship. (I hope tree is sufficient) E.g., comments 
 
 Docu nodes can have edges to EU nodes. E.g., a Docu saved by an EU, a Docu liked by an EU, etc.
 
-å•†ä¸šç”¨æˆ·å¯ä»¥å®šä¹‰Docu life cycle triggered event çš„å¯¹åº”çš„actionã€‚
-Lifecycle events are defined and offered by system:
-
+###Life Cycle Events
+Life cycle events of a Docu are defined and offered by system:
 **Created, Posted, Updated, Closed, Deleted**
 
+##Action
+SNAO can define actions for life cycle events.
 Actions are defined and offered by system:
-
-**Notify User**: sending notification to userâ€™s mobile app, or emailing user. Email can be configured as aggregation or summary.
-
-**Feed User**: Showing on userâ€™s landing page.
-
-**Message User**: Showing in userâ€™s inbox.
+**Notify User**: sending notification to user¡¯s mobile app, or emailing user. Email can be configured as aggregation or summary.
+**Feed User**: Showing on user¡¯s landing page.
+**Message User**: Showing in user¡¯s inbox.
 
 ##Others
+Social integration similar to Ning 
+Member sign-in via Facebook, Twitter, LinkedIn, Google & more
+Seamless sharing to social media sites
+Smart Phone ºÍ Tablet app
 
-ç±»ä¼¼Ningçš„ Social integration Member sign-in via Facebook, Twitter, LinkedIn, Google & more Seamless sharing to social media sites Smart Phone å’Œ Tablet app
+APIs for SNAO.
 
-ä¸ºå•†ä¸šç”¨æˆ·æä¾›æ‰©å±•çš„APIã€‚
 
-#æ¡ˆä¾‹åˆ†æ
+#Case Study - Wanelo
+https://wanelo.com/
+http://en.wikipedia.org/wiki/Wanelo
 
-##Wanelo
+##Feature List
+EU can post a product. EU posts product url, application parses images and price for EU to select and confirm.
+EU can post a story. EU types in a story, with or without products.
+EU can purchase products following the product URL. The purchase happens completely out of Wanelo.
+EU can save a product to self-defined collections. 
+EU can view the poster of a product.
+EU can view the people who saved a product.
+EU can follow other users so that posts from followed users are fed into "*My Feed*" section.
 
-Waneloçš„åˆ›ç«‹è€…æ²¡æœ‰ç¼–ç¨‹backgroundï¼Œå‡ ç»æ³¢æŠ˜æ‰å»ºç«‹èµ·ä¸€ä¸ªå›¢é˜Ÿã€‚ https://wanelo.com/
+EU can see *My Feed*.
+EU can see recommendations (*Magic*) based saved products.
+EU can see *Trending* categorized for *Women*, *Men*, *Home*, and/or price ($, $$, $$$)
 
-ç»ˆç«¯ç”¨æˆ·å‘å¸ƒäº§å“ä¿¡æ¯ï¼Œç±»åˆ«ï¼Œç…§ç‰‡å’Œä»·æ ¼ã€‚ ç»ˆç«¯ç”¨æˆ·å¯ä»¥followå…¶ä»–ç”¨æˆ·ã€‚ ç»ˆç«¯ç”¨æˆ·å¯ä»¥è´­ä¹°äº§å“ã€‚
+##Analysis
+Imagine Wanelo will be built after the Docu platform is ready. Most features will be out-of-box in platform. Some specific application related features are still required to be implemented, but that can be done either by the SNAO herself or a hired part-time developer. Also, the platform may offer consultants for such customized development.
 
-##Stylists411
 
-http://www.stylists411.com/ ï¼ˆæ³¨ï¼šä¸æ˜¯å¾ˆè‚¯å®šè¿™æ˜¯ä¸æ˜¯æˆ‘åŸæ¥çœ‹åˆ°çš„ç½‘ç«™ï¼‰ ä¸€ä¸ªæä¾›å‘å‹å¸ˆå’Œä»–ä»¬å®¢æˆ·äº’åŠ¨çš„ç½‘ç«™ã€‚
 
-å‘å‹å¸ˆå‘å¸ƒè‡ªå·±çš„ä¿¡æ¯ã€‚ å®¢æˆ·ä»¬å¯ä»¥æ‰¾è‡ªå·±å–œæ¬¢çš„ã€‚
+#Case Study - Stylists411
+http://www.stylists411.com/
+£¨×¢£º²»ÊÇºÜ¿Ï¶¨ÕâÊÇ²»ÊÇÎÒÔ­À´¿´µ½µÄÍøÕ¾£©
+Ò»¸öÌá¹©·¢ĞÍÊ¦ºÍËûÃÇ¿Í»§»¥¶¯µÄÍøÕ¾¡£
 
-##AirBnB
+·¢ĞÍÊ¦·¢²¼×Ô¼ºµÄĞÅÏ¢¡£
+¿Í»§ÃÇ¿ÉÒÔÕÒ×Ô¼ºÏ²»¶µÄ¡£
 
-å‘å¸ƒçš„æ˜¯çŸ­ç§Ÿæˆ¿çš„ä¿¡æ¯ä»·æ ¼ã€‚ æä¾›æŸ¥è¯¢å’Œç«™å†…çŸ­ä¿¡äº’åŠ¨ï¼Œæœ€ç»ˆäº¤æ˜“ã€‚
+## AirBnB
+·¢²¼µÄÊÇ¶Ì×â·¿µÄĞÅÏ¢¼Û¸ñ¡£
+Ìá¹©²éÑ¯ºÍÕ¾ÄÚ¶ÌĞÅ»¥¶¯£¬×îÖÕ½»Ò×¡£
 
-##å…¶å®ƒæ¡ˆä¾‹
+##ÆäËü°¸Àı
+ÎÒÔø¹¹ÏëµÄÕÒnanyºÍĞ¡º¢½ÓËÍ·şÎñµÄÍøÕ¾¡£
+MattµÄ³ÌĞò¡£
 
-æˆ‘æ›¾æ„æƒ³çš„æ‰¾nanyå’Œå°å­©æ¥é€æœåŠ¡çš„ç½‘ç«™ã€‚ Mattçš„ç¨‹åºã€‚
+#»ú»á·ÖÎö
+ÒÔÉÏµÄÏµÍ³£¬ºÜ´óÒ»²¿·ÖÊÇÏàËÆµÄ¡£°ÑÏàÍ¬µÄ²¿·Ö£¬ÓÃmetadata drivenµÄ·½Ê½×öºÃ£¬¼´Ê¹²»ÄÜ³ÉÎªÒ»¸öhosting platform£¬Ò²¿ÉÒÔÎªÎÒÃÇÒÔºóµÄÏîÄ¿´òºÃ»ù´¡¡£
 
-#æœºä¼šåˆ†æ
-ä»¥ä¸Šçš„ç³»ç»Ÿï¼Œå¾ˆå¤§ä¸€éƒ¨åˆ†æ˜¯ç›¸ä¼¼çš„ã€‚æŠŠç›¸åŒçš„éƒ¨åˆ†ï¼Œç”¨metadata drivençš„æ–¹å¼åšå¥½ï¼Œå³ä½¿ä¸èƒ½æˆä¸ºä¸€ä¸ªhosting platformï¼Œä¹Ÿå¯ä»¥ä¸ºæˆ‘ä»¬ä»¥åçš„é¡¹ç›®æ‰“å¥½åŸºç¡€ã€‚
+#ÏµÍ³Éè¼Æ²İ°¸
 
-#ç³»ç»Ÿè®¾è®¡è‰æ¡ˆ
-æŠ€æœ¯çš„é€‰æ‹©åªæ˜¯å¾ˆæ—©å‰çš„å€¾å‘ã€‚æ‰€æœ‰çš„éƒ½å¯èƒ½æ ¹æ®å…·ä½“çš„éœ€æ±‚å˜åŒ–ã€‚
+¼¼ÊõµÄÑ¡ÔñÖ»ÊÇºÜÔçÇ°µÄÇãÏò¡£ËùÓĞµÄ¶¼¿ÉÄÜ¸ù¾İ¾ßÌåµÄĞèÇó±ä»¯¡£
 
-æ•°æ®å­˜å‚¨ æ•°æ®å­˜å‚¨å€¾å‘äºç”¨Graph databaseã€‚å› ä¸ºç”¨æˆ·å…³ç³»å’ŒDocuçš„å…³ç³»éƒ½æ˜¯å›¾ã€‚å…·ä½“çš„Docuå¯èƒ½ç”¨Document databaseã€‚
+Êı¾İ´æ´¢
+Êı¾İ´æ´¢ÇãÏòÓÚÓÃGraph database¡£ÒòÎªÓÃ»§¹ØÏµºÍDocuµÄ¹ØÏµ¶¼ÊÇÍ¼¡£¾ßÌåµÄDocu¿ÉÄÜÓÃDocument database¡£
 
-å¯èƒ½çš„é€‰æ‹©ï¼šTitan DB + Mango DB check out http://www.orientechnologies.com/orientdb/ for Graph database
+¿ÉÄÜµÄÑ¡Ôñ£ºTitan DB + Mango DB
+check out http://www.orientechnologies.com/orientdb/ for Graph database
 
-æœåŠ¡å™¨ç«¯ Openã€‚æ¯”è¾ƒå€¾å‘äºreactive programmingçš„frameworkã€‚
+·şÎñÆ÷¶Ë
+Open¡£±È½ÏÇãÏòÓÚreactive programmingµÄframework¡£
 
-Messaging Kafkaã€‚
+Messaging
+Kafka¡£
 
-å‰ç«¯ AngularJSã€‚å•†ä¸šç”¨æˆ·å¯ä»¥ä¸ºè‡ªå·±çš„Docuè®¾è®¡layoutï¼Œä¹Ÿå¯ä»¥è®¾è®¡è‡ªå·±çš„Moduleã€‚
+Ç°¶Ë
+AngularJS¡£ÉÌÒµÓÃ»§¿ÉÒÔÎª×Ô¼ºµÄDocuÉè¼Ælayout£¬Ò²¿ÉÒÔÉè¼Æ×Ô¼ºµÄModule¡£
