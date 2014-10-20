@@ -1,4 +1,5 @@
 Goal
+
 A platform to provide infrastructure, service and operation for social media and social network start-ups.
 
 客户对象
